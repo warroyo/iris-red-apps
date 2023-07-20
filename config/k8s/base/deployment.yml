@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-red-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-red-app
+  template:
+    metadata:
+      labels:
+        app: iris-red-app
+    spec:
+      containers:
+        - name: workload
+          image: hashicorp/http-echo
+          args: ["-text='iris-red team'"] 
+          ports:
+            - name: http-port
+              containerPort: 8080

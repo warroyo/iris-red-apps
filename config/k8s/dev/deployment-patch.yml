@@ -1,0 +1,3 @@
+- op: replace #action 
+  path: /spec/template/spec/containers/0/args #resouirce we want to change
+  value: ["-text='iris-red team dev'"] #value we want to use for patching 

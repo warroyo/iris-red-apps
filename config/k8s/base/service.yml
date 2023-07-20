@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-red-app
+spec:
+  ports:
+    - name: http-port
+      port: 80
+      targetPort: http-port
+      protocol: TCP
+  selector:
+    app: iris-red-app
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: iris-red-app
+spec:
+  virtualhost:
+    fqdn: iris-red-app.fluxtmc.aws.warroyo.com
+  routes:
+    - conditions:
+      - prefix: /
+      services:
+        - name: iris-red-app
+          port: 80

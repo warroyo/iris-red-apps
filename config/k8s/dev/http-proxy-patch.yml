@@ -1,0 +1,3 @@
+- op: replace #action 
+  path: /spec/virtualhost/fqdn #resouirce we want to change
+  value: iris-red-app.dev.fluxtmc.aws.warroyo.com #value we want to use for patching 
